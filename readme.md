@@ -2,10 +2,18 @@
 
 ## Description du projet 
 ### Contexte
-Ce projet est un projet de groupe réalisé dans le cadre de la formation de développeur web et web mobile d'OpenClassrooms. Il a pour but de mettre en pratique les compétences acquises durant la formation.
+Ceci est un projet réalisé dans le cadre de ma formation de développeur d'application Python chez OpenClassrooms. Il a pour but de mettre en pratique les compétences acquises dans le cadre de cette formation.
+
 
 ### Objectif
-Le but de ce projet est de réaliser une plateforme de réservation pour un disquaire. Cette plateforme permettra aux utilisateurs de réserver des disques et aux administrateurs de gérer les disques et les réservations.
+Le but de ce projet est de réaliser une plateforme de réservation pour un disquaire. Cette plateforme permettra aux utilisateurs de réserver des disques et aux administrateurs de gérer les disques et les réservations. L'idée étant de développer de mettre en pratique les compétences suivantes :
+- Créer une application web grand public en respectant les standards du web et les normes de sécurité,
+- Utiliser Django pour créer une application professionnelle,
+- Organiser un projet Django en suivant de bonnes pratiques,
+- Utiliser l'ORM de Django pour interagir avec la base de données,
+- Créer des gabarits,
+- Tester un projet Django avec des tests unitaires,
+- Mettre en ligne une application Django sur Heroku
 
 ### Fonctionnalités
 - Gestion des utilisateurs
