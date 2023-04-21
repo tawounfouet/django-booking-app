@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,10 +25,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-@zs=v49+9l$-esb9h5n3#6z8v9*-bw_*c7f4a#3mot308e&5+a"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# génération de la clé secrète
+#import random, string
+# "".join([random.choice(string.printable) for _ in range(24)])
+PROD_SECRET_KEY = 'vvr?M\n[}5j(jvJ&{sluT(l*m'
 
-ALLOWED_HOSTS = ['127.0.0.1']
+
+# SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True
+if os.environ.get("ENV") == "PRODUCTION":
+    DEBUG = False
+else:
+    DEBUG = True
+
+# nom de domaine sur Heroku -> nomdelapplication.herokuapp.com
+# domaine de mon app : disquaire.herokuapp.com
+
+# ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'disquaire.herokuapp.com']
 
 
 # Application definition
@@ -51,6 +68,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.locale.LocaleMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+
 ]
 
 ROOT_URLCONF = "apps.urls"
@@ -120,6 +139,19 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 INTERNAL_IPS = ["127.0.0.1"]
+
+if os.environ.get('ENV') == 'PRODUCTION':
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+    STATICFILES_DIRS = (
+        os.path.join(PROJECT_ROOT, 'static'),
+    )
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
