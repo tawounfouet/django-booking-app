@@ -28,7 +28,17 @@ SECRET_KEY = "django-insecure-@zs=v49+9l$-esb9h5n3#6z8v9*-bw_*c7f4a#3mot308e&5+a
 # génération de la clé secrète
 #import random, string
 # "".join([random.choice(string.printable) for _ in range(24)])
-PROD_SECRET_KEY = 'vvr?M\n[}5j(jvJ&{sluT(l*m'
+
+"""
+# PROD_SECRET_KEY = 'vvr?M\n[}5j(jvJ&{sluT(l*m'
+To set the SECRET_KEY config variable for your Heroku app, you should run the following command:
+
+heroku config:set SECRET_KEY="vvr?M\n[}5j(jvJ&{sluT(l*m" --app disquaire-app
+heroku config:set ENV="PRODUCTION" --app disquaire-app
+heroku config --app disquaire-app
+
+"""
+
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
