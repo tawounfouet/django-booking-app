@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
+#import django_heroku
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -36,7 +36,13 @@ To set the SECRET_KEY config variable for your Heroku app, you should run the fo
 heroku config:set SECRET_KEY="vvr?M\n[}5j(jvJ&{sluT(l*m" --app disquaire-app
 heroku config:set ENV="PRODUCTION" --app disquaire-app
 heroku config --app disquaire-app
+"""
 
+"""
+Push app to Heroku
+
+heroku git:remote -a disquaire-app
+git push heroku main
 """
 
 
