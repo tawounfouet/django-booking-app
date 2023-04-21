@@ -47,6 +47,8 @@ class IndexPageTestCase(TestCase):
 #         self.assertEqual(response.status_code, 404)
 
 
+# client.post('/', {'name': 'Freddie', 'email': 'fred@queen.forever'})
+
 class DetailPageTestCase(TestCase):
 
     # Create an album before each test
